@@ -25,4 +25,32 @@ git reflog 记录每一次命令，查看命令历史
 
 - 在实际的文件夹中删除文件，然后用 git rm filename，将删除的动作提交暂存区
 
+#### 本地文件夹关联远程库
 
+- 关联：git remote add origin git@server-name:path/repo-name.git
+- 第一次推送master到远端：git push `-u` origin master
+
+#### 分支操作
+
+- git checkout -b dev：-b参数表示创建并切换
+- git merge branchName：合并指定分支到当前分支
+  - 禁用Fast forward模式（--no-ff），Git就会在merge时生成一个新的commit
+  - git merge `--no-ff` `-m "merge with no-ff"` dev，因为会新生成各个commit，所以用 -m 指定commit 信息
+
+#### 存贮当前工作区文件
+- git stash
+- git stash list：查看stash的记录。形如：
+  - stash@{0}: WIP on dev: f52c633 add merge
+- stash内容恢复
+  - git stash apply：恢复，但是恢复后，stash内容并不删除。需要用git stash drop来删除
+  - git stash pop：恢复的同时把stash内容也删了
+- 恢复指定的 stash
+  - git stash apply `stash@{0}`
+
+#### 远程仓库
+
+- 远程仓库的默认名称是origin
+- `git remote`：查看远程库的信息；用 git remote -v 显示更详细的信息
+- git branch --set-upstream-to=origin/<branch> dev：指定本地dev分支与远程origin/dev分支的链接
+
+#### Rebase
