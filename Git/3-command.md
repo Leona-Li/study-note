@@ -54,3 +54,6 @@ git reflog 记录每一次命令，查看命令历史
 - git branch --set-upstream-to=origin/<branch> dev：指定本地dev分支与远程origin/dev分支的链接
 
 #### Rebase
+
+- rebase操作可以把本地未push的分叉提交历史整理成直线；
+- rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
